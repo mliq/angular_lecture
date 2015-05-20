@@ -17,9 +17,7 @@ myApp.controller('WelcomeController',["$scope", "$http", function($scope, $http)
            if(response.status !== 200){
                throw new Error("I haz sad.");
            }
-
-            $scope.persons.push(response.data);
-            console.log($scope.persons);
+            console.log(response.data);
             return response.data;
         });
     };
