@@ -41,7 +41,8 @@ module.exports = function(grunt) {
                 expand: true,
                 cwd: "client",
                 src: [
-                    "stylesheets/style.css"
+                    "stylesheets/style.css",
+                    "stylesheets/rotating-card.css"
                 ],
                 "dest": "public/"
             },

@@ -19,6 +19,13 @@ myApp.controller('WelcomeController', ["$scope", "$http", function ($scope, $htt
             }
             console.log(response.data);
             $scope.movies = response.data.movies;
+            $scope.movies.forEach(function (movie) {
+                if (movie["review"] == 'na') {
+                    movie["showreview"] = false;
+                } else {
+                    movie["showreview"] = true;
+                }
+            });
             return response.data;
         });
     };

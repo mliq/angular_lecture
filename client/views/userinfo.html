@@ -4,12 +4,28 @@
             <h1>{{heading + message}}</h1>
             <input ng-model="name" type="text" placeholder="Enter your name here">
         </div>
-        <button ng-click="updateMessage()"  class="btn btn-info">Hello</button>
+        <button ng-click="updateMessage()" class="btn btn-info">Hello</button>
         <button ng-click="goodByeMessage()" class="btn btn-info">Goodbye</button>
         <button ng-click="grabinfo()" class="btn btn-info">Get Info</button>
+        <p></p>
 
-        <div ng-repeat="movie in movies | limitTo: 4">
-            <h3>{{movie.title}}</h3>
+        <div class="card-container">
+            <div ng-repeat="movie in movies | orderBy: 'title' | limitTo: 4" class="col-md-3 card">
+                <div class="front">
+                    <!--<div class="cover">-->
+                        <img ng-src="{{movie.imageurl}}"/>
+                    <!--</div>-->
+                <h3>{{movie.title}}</h3>
+                </div>
+                <div class="back">
+                <p>SKU: {{movie.sku}}</p>
+
+                <p>{{movie.price | currency}}</p>
+
+                <p ng-show="movie.showreview">{{movie.review}} out of 5</p>
+
+                <p ng-hide="movie.showreview">Currently no review</p>
+            </div>
         </div>
     </div>
 </div>
